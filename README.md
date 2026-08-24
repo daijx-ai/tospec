@@ -24,9 +24,11 @@ The skill keeps higher-priority authorization and safety gates for external, des
 
 ## Evidence boundary
 
-Development canaries covered a one-line change, fake-data input validation, a bounded role/tenant authorization change, and a missing-target failure branch. The skill kept edits inside the requested implementation file, preserved validation and authorization rejection paths, avoided collateral status/docs work, and stopped without inventing a missing path.
+Development canaries covered a one-line change, fake-data input validation, a bounded role/tenant authorization change, CI configuration, a missing-target failure branch, a correct read-only non-trigger, and a conflicting TLS test. The skill kept edits inside the requested implementation file, preserved validation and authorization rejection paths, avoided collateral status/docs work, stopped without inventing a missing path, and rejected a test that required disabling a declared security boundary.
 
 On the bounded authorization canary, the observed context reduction also depended on a short mechanical Codex workflow router. Installing this repository installs the Skill only; it does not rewrite global Agent rules. See [the optional Codex integration example](examples/codex-integration.md) if your runtime currently reads a large SOP for every task.
+
+The optional integration includes a standard-library validator that enforces the one-way invariant `inline Light => router §0 Light`.
 
 ## Usage
 

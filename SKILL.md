@@ -22,7 +22,9 @@ Privately identify:
 2. the smallest existing code path that can produce it;
 3. the minimum artifact budget: named implementation files plus the closest relevant verification surface.
 
-A clearly Light task has one requested behavior, a target discoverable in the current repository, local reversibility, and no Contract, schema, authorization, persisted/shared-data, global or cross-runtime rule, production/CI/release/deployment/runtime-configuration, or external-system change. Make that tiering decision from these criteria without opening a long SOP, cross-project memory, history, ASSETS, routing maps, or unrelated status files. If any criterion is absent or uncertain, read the relevant current project source and only the exact cited SOP section needed for the resulting tier.
+A clearly Light task has one requested behavior, a target discoverable in the current repository, local reversibility, and no confirmed product behavior or Contract, schema, authorization or security boundary, persisted/shared-data, global or cross-runtime rule, production/CI/release/deployment/runtime-configuration, or external-system change. Make that tiering decision from these criteria without opening a long SOP, cross-project memory, history, ASSETS, routing maps, or unrelated status files.
+
+If any criterion is absent, uncertain, or fails, escalate once: privately name the crossed boundary; inspect the current contract, tests, and directly affected callers that govern it; and extend verification to falsify that boundary, including deny or negative cases where applicable. If the current runtime designates a tiering SOP, read only the section for the resulting tier; otherwise this escalation is complete in itself. Escalation deepens inspection and verification only; the artifact gate and communication rules are unchanged.
 
 Do not narrate this reduction unless ambiguity materially changes scope, risk, or acceptance.
 
@@ -47,7 +49,7 @@ Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork,
 ## Failure Branches
 
 - Target unresolved: search only nearby repository structure and named path references. If still unresolved, ask one blocking question and do not write or invent a path.
-- Necessary context absent or a Light criterion fails: read the relevant current project source, re-tier once, and continue under that tier without rewriting completed work.
+- Necessary context absent or a Light criterion fails: perform the escalation above once and continue under it without rewriting completed work.
 - Verification fails: diagnose the first falsifying boundary, fix the root cause inside the artifact budget, and rerun that check. Widen the budget only when the failure proves another artifact necessary; after two focused failures, stop with evidence.
 - A checkpoint dependency may have changed: revalidate that dependency and affected downstream work only, not earlier accepted gates.
 
@@ -55,6 +57,7 @@ Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork,
 
 - For local, reversible, prototype, demo, or fake-data work, implement the basic correct vertical slice now using existing platform-native safe defaults. Do not design speculative production hardening.
 - Do not knowingly introduce a vulnerability. Keep security that is inseparable from correctness: secret non-disclosure, existing authorization boundaries, safe parameterization, and validation of inputs actually accepted by the changed path.
+- If a request or test conflicts with a current security invariant, do not weaken the invariant to make the check pass. Stop with the conflict and the smallest safe correction; an invalid test is not completion evidence.
 - Add threat models, new auth systems, recovery frameworks, security documents, permission matrices, or defense-in-depth only when the request, live boundary, existing contract, or observed risk requires them.
 - When a hard gate applies, perform the smallest required gate once. Reuse accepted evidence; do not repeat completed checks or turn the gate into extra deliverables.
 
@@ -66,7 +69,7 @@ Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork,
 4. Run the smallest check that can actually falsify the requested behavior on the changed boundary, then any mandatory repository gate for that boundary. A cheap check that cannot detect the plausible failure does not count.
 5. Stop when the requested outcome works and the relevant evidence passes. Continue only if the next action changes the user's requested result.
 
-For a retry or recovery, resume from the latest step whose expected output, exit status, or user confirmation was actually observed. It is not a report file. Reuse it only while its inputs and environment are unchanged or point-in-time validity is irrelevant; otherwise follow the changed-dependency branch above.
+For a retry or recovery, resume from the latest step whose expected output, exit status, or user confirmation was actually observed. A claim in a report file does not count as an observation. Reuse the checkpoint only while its inputs and environment are unchanged or point-in-time validity is irrelevant; otherwise follow the changed-dependency branch above.
 
 ## Communication
 
