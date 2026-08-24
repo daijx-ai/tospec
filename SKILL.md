@@ -22,7 +22,7 @@ Privately identify:
 2. the smallest existing code path that can produce it;
 3. the minimum artifact budget: named implementation files plus the closest relevant verification surface.
 
-A clearly Light task has one requested behavior, a target discoverable in the current repository, local reversibility, and no Contract, schema, authorization, persisted/shared-data, runtime-configuration, or external-system change. Make that tiering decision from these criteria without opening a long SOP, cross-project memory, history, ASSETS, routing maps, or unrelated status files. If any criterion is absent or uncertain, read the relevant current project source and only the exact cited SOP section needed for the resulting tier.
+A clearly Light task has one requested behavior, a target discoverable in the current repository, local reversibility, and no Contract, schema, authorization, persisted/shared-data, global or cross-runtime rule, production/CI/release/deployment/runtime-configuration, or external-system change. Make that tiering decision from these criteria without opening a long SOP, cross-project memory, history, ASSETS, routing maps, or unrelated status files. If any criterion is absent or uncertain, read the relevant current project source and only the exact cited SOP section needed for the resulting tier.
 
 Do not narrate this reduction unless ambiguity materially changes scope, risk, or acceptance.
 
