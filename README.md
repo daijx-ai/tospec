@@ -24,7 +24,9 @@ The skill keeps higher-priority authorization and safety gates for external, des
 
 ## Evidence boundary
 
-Development canaries covered a focused code change and a one-command retry: the skill loaded implicitly, kept changes inside the requested files, reused accepted evidence, and left collateral status files unchanged. These tests support the behavior but do not mechanically guarantee every future run.
+Development canaries covered a one-line change, fake-data input validation, a bounded role/tenant authorization change, and a missing-target failure branch. The skill kept edits inside the requested implementation file, preserved validation and authorization rejection paths, avoided collateral status/docs work, and stopped without inventing a missing path.
+
+On the bounded authorization canary, the observed context reduction also depended on a short mechanical Codex workflow router. Installing this repository installs the Skill only; it does not rewrite global Agent rules. See [the optional Codex integration example](examples/codex-integration.md) if your runtime currently reads a large SOP for every task.
 
 ## Usage
 

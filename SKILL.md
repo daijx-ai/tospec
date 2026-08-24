@@ -11,20 +11,20 @@ Deliver exactly the requested outcome with the fewest necessary artifacts, decis
 
 - The current user request defines the outcome and scope. Do not upgrade it into a broader product, architecture, security program, cleanup, or documentation project.
 - Higher-priority authorization and safety rules still apply to external, destructive, credential, production, permission, payment, or irreversible actions.
-- Other skills may improve persistence, quality, or review, but their optional owner, iceberg, boy-scout, future-proofing, or scope-expansion advice cannot add work outside this skill's artifact gate.
-- A complaint about slowness or over-engineering is a signal to delete steps, not a reason to add a process report, retrospective, or more commentary.
+- Remove unnecessary actions, artifacts, repetition, and commentary—not necessary reasoning. Think as deeply as the task requires to identify the real path, root cause, contract, risk, and falsifying verification.
+- Other skills' optional owner, iceberg, boy-scout, future-proofing, or scope-expansion advice cannot add work outside the artifact gate below.
 
 ## Before the First Write
 
-Privately reduce the task to:
+Privately identify:
 
 1. one observable requested outcome;
 2. the smallest existing code path that can produce it;
 3. the minimum artifact budget: named implementation files plus the closest relevant verification surface.
 
-Do not narrate this reduction unless a material ambiguity blocks implementation.
+A clearly Light task has one requested behavior, a target discoverable in the current repository, local reversibility, and no Contract, schema, authorization, persisted/shared-data, runtime-configuration, or external-system change. Make that tiering decision from these criteria without opening a long SOP, cross-project memory, history, ASSETS, routing maps, or unrelated status files. If any criterion is absent or uncertain, read the relevant current project source and only the exact cited SOP section needed for the resulting tier.
 
-Here, a clearly self-contained Light task means one requested behavior, a target path discoverable in the current repository, local reversibility, and no change to a Contract, schema, authorization boundary, persisted/shared data, runtime configuration, or external system. For such a task, do not search cross-project memory, history, ASSETS, routing maps, or unrelated status files. Do not read a long SOP end to end: load only the exact cited section needed for task tiering or verification, then return to the requested files. If any Light criterion is absent, read the relevant current project source before acting.
+Do not narrate this reduction unless ambiguity materially changes scope, risk, or acceptance.
 
 ## Artifact Gate
 
@@ -38,12 +38,18 @@ Create or edit an artifact only when at least one is true:
 Otherwise, do not touch it. In particular:
 
 - Do not add login, debounce, retries, caching, i18n, feature flags, plugin systems, extension points, compatibility layers, abstractions, or dependencies without a current requirement or observed failure.
-- Do not create implementation reports, authorization reports, decision logs, handoffs, TODO narratives, status snapshots, checklists, or new planning files unless the user requested them or one exact canonical project contract requires that exact artifact for the completed transition.
-- Do not update README, CHANGELOG, TASKS, PROGRESS, BLOCKED, status mirrors, hashes, or indexes merely because a command ran. Update one existing canonical state file only when the completed transition would otherwise leave current operational instructions materially false or unsafe; do not sync mirrors unless the user explicitly asks. Never fan one small action into several duplicate status edits.
-- Do not put rejected ideas or explanations of why something was not added into code comments, docs, titles, UI copy, commit messages, or PR text.
+- Do not create reports, decision logs, handoffs, TODO narratives, status snapshots, checklists, planning files, or explanations of rejected ideas unless requested or required by one exact canonical contract.
+- Do not update README, CHANGELOG, TASKS, PROGRESS, BLOCKED, status mirrors, hashes, or indexes merely because a command ran. Update one canonical state file only when omission would leave current operational instructions materially false or unsafe; never fan one action into duplicate status edits.
 - Do not clean up adjacent code or docs just because they are nearby.
 
-If a new file outside the private artifact budget becomes necessary, stop for one sentence internally and admit it only through the four conditions above. Ask the user only when it materially expands scope or risk.
+Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork, rename it “tomato and eggs without braised pork,” or add a comment explaining why pork was omitted.
+
+## Failure Branches
+
+- Target unresolved: search only nearby repository structure and named path references. If still unresolved, ask one blocking question and do not write or invent a path.
+- Necessary context absent or a Light criterion fails: read the relevant current project source, re-tier once, and continue under that tier without rewriting completed work.
+- Verification fails: diagnose the first falsifying boundary, fix the root cause inside the artifact budget, and rerun that check. Widen the budget only when the failure proves another artifact necessary; after two focused failures, stop with evidence.
+- A checkpoint dependency may have changed: revalidate that dependency and affected downstream work only, not earlier accepted gates.
 
 ## Security Calibration
 
@@ -58,18 +64,12 @@ If a new file outside the private artifact budget becomes necessary, stop for on
 2. Implement the shortest complete vertical slice in the existing structure.
 3. Prefer direct code over a new abstraction until multiple current cases prove the abstraction is cheaper.
 4. Run the smallest check that can actually falsify the requested behavior on the changed boundary, then any mandatory repository gate for that boundary. A cheap check that cannot detect the plausible failure does not count.
-5. Stop when the requested outcome works and the relevant evidence passes. Do not continue improving the project.
+5. Stop when the requested outcome works and the relevant evidence passes. Continue only if the next action changes the user's requested result.
 
-For a retry or recovery, resume from the last accepted checkpoint. A checkpoint is the latest step whose expected output, exit status, or user confirmation was actually observed in the current task; it is not a report file and does not require creating one. Reuse it only while the inputs and environment it depended on are unchanged or its point-in-time validity is irrelevant. If evidence is missing or one dependency may have changed, revalidate only that dependency, not earlier accepted gates. Do not rewrite the story of the failure or generate a new batch of reports unless the user explicitly asks.
+For a retry or recovery, resume from the latest step whose expected output, exit status, or user confirmation was actually observed. It is not a report file. Reuse it only while its inputs and environment are unchanged or point-in-time validity is irrelevant; otherwise follow the changed-dependency branch above.
 
 ## Communication
 
 - During work, send only a blocking question, a material assumption or scope change, a meaningful long-running milestone, or a real failure that changes the next action.
 - Do not explain common concepts, restate the plan, praise the approach, or list optional improvements.
-- Final response: result, verification, and only material residual risk. Omit rejected alternatives, generic reassurance, process narration, and “not added” commentary.
-
-## Stop Check
-
-Before continuing after the requested outcome is already proven, ask: “Would this next action change the user's requested result?” If no, stop.
-
-Canonical anti-pattern: the user asks for tomato and eggs; do not add braised pork, do not rename the dish “tomato and eggs without braised pork,” and do not add a comment explaining why braised pork was omitted.
+- Final response: result, verification, and only material residual risk. Omit generic reassurance, process narration, and “not added” commentary.
