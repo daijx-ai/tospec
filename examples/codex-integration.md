@@ -1,6 +1,6 @@
 # Optional Codex integration
 
-`lean-delivery` is standalone for clearly Light implementation work. A Codex setup that currently mandates reading a long collaboration SOP for every non-Light task can pair it with a short canonical router.
+`tospec` is standalone for clearly Light implementation work. A Codex setup that currently mandates reading a long collaboration SOP for every non-Light task can pair it with a short canonical router.
 
 This is an integration pattern, not an installer. Do not overwrite an existing global workflow without reviewing its authorization, deployment, credential, destructive-action, and verification gates.
 
@@ -14,7 +14,7 @@ The tested pattern keeps the canonical entry short and moves detailed workflow s
 Relevant global entry shape:
 
 ```markdown
-- If `lean-delivery` is loaded and all inline Light conditions hold, use them as conservative sufficient conditions for Light without opening the SOP; inline Light must imply router §0 Light.
+- If `tospec` is loaded and all inline Light conditions hold, use them as conservative sufficient conditions for Light without opening the SOP; inline Light must imply router §0 Light.
 - Heavy classification determines risk coverage; it does not by itself require cross-project memory, a whole-SOP read, todo artifacts, or multi-Agent orchestration.
 - A bounded Heavy fast path may skip those costs only when every eligibility condition is proven; otherwise read the exact normal-Heavy sections required by current evidence.
 ```

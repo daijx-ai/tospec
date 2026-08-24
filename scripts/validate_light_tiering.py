@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify that lean-delivery's inline Light shortcut is no weaker than router §0."""
+"""Verify that ToSpec's inline Light shortcut is no weaker than router §0."""
 
 from __future__ import annotations
 
@@ -104,4 +104,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -1,9 +1,9 @@
 ---
-name: lean-delivery
+name: tospec
 description: "Use whenever the agent is asked to implement, build, fix, modify, recover, retry, continue an implementation, ship, or perform an execution task on code, configuration, or a project. Enforce the smallest task-complete change, no speculative features or hardening, no collateral docs/status/commentary, and nearest-scope verification. Especially use when the user says 绕弯子, 太肉, 东坡肉, 先做基本版, 别浪费时间, or 只做这一步. Do not use for read-only investigation, diagnosis, planning, a requested deep audit or security review, broad refactor, or architecture study."
 ---
 
-# Lean Delivery
+# ToSpec
 
 Deliver exactly the requested outcome with the fewest necessary artifacts, decisions, and elapsed steps. Safety is a boundary, not a second project.
 

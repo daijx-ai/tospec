@@ -1,11 +1,13 @@
-# Lean Delivery
+# ToSpec
+
+Build to spec. Prove it works.
 
 An Agent Skill for shipping exactly what the user requested—without speculative features, collateral status files, excessive safety ceremony, or commentary about work that was intentionally not done.
 
 ## Install
 
 ```bash
-npx skills add daijx-ai/lean-delivery-skill
+npx skills add daijx-ai/tospec
 ```
 
 Or copy this repository into a user or project skills directory supported by your agent runtime.
@@ -35,7 +37,7 @@ The optional integration includes a standard-library validator that enforces the
 Automatic invocation is enabled. It can also be invoked explicitly:
 
 ```text
-$lean-delivery implement this request with the smallest sufficient change
+$tospec implement this request with the smallest sufficient change
 ```
 
 ## License
