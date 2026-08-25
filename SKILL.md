@@ -18,7 +18,7 @@ Deliver exactly the requested outcome with the fewest necessary artifacts, decis
 
 Privately identify:
 
-1. one observable requested outcome;
+1. one user-observable acceptance target, not an internal proxy; when the requested outcome is a demo, preview, deployment, release, or handoff, it must be reachable by the intended user in the requested environment, and internal evidence or prerequisites—such as tests, reports, reviews, hashes, migrations, or local-only success—do not substitute for it;
 2. the smallest existing code path that can produce it;
 3. the minimum artifact budget: named implementation files plus the closest relevant verification surface.
 
@@ -67,7 +67,7 @@ Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork,
 2. Implement the shortest complete vertical slice in the existing structure.
 3. Prefer direct code over a new abstraction until multiple current cases prove the abstraction is cheaper.
 4. Run the smallest check that can actually falsify the requested behavior on the changed boundary, then any mandatory repository gate for that boundary. A cheap check that cannot detect the plausible failure does not count.
-5. Stop when the requested outcome works and the relevant evidence passes. Continue only if the next action changes the user's requested result.
+5. Stop when the acceptance target works and the relevant evidence passes. A finding blocks the current milestone only if it falsifies that target, a current contract, or a mandatory authorization, security, or release gate; otherwise carry it as residual risk in the final response and wherever the current contract requires, without fixing or re-reviewing it now. Continue only when the next action changes the target, removes a demonstrated blocker, verifies a change just made, or supplies required evidence that is absent or stale. A report, review, or rerun of unchanged work does not qualify by itself.
 
 For a retry or recovery, resume from the latest step whose expected output, exit status, or user confirmation was actually observed. A claim in a report file does not count as an observation. Reuse the checkpoint only while its inputs and environment are unchanged or point-in-time validity is irrelevant; otherwise follow the changed-dependency branch above.
 
