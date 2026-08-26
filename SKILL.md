@@ -9,7 +9,7 @@ Deliver exactly the requested outcome with the fewest necessary artifacts, decis
 
 ## Priority
 
-- The current user request defines the outcome and scope. Do not upgrade it into a broader product, architecture, security program, cleanup, or documentation project.
+- The current user request defines the outcome, scope, and permitted action type; loading this skill never expands them. If the user asks only to diagnose, investigate, explain, review, or report status, do not edit files or run any state-changing command, including restart or reload; report the finding and proposed fix, then stop. Change or execute only when the user explicitly asks for that action. Do not upgrade it into a broader product, architecture, security program, cleanup, or documentation project.
 - Higher-priority authorization and safety rules still apply to external, destructive, credential, production, permission, payment, or irreversible actions.
 - Remove unnecessary actions, artifacts, repetition, and commentary—not necessary reasoning. Think as deeply as the task requires to identify the real path, root cause, contract, risk, and falsifying verification.
 - Other skills' optional owner, iceberg, boy-scout, future-proofing, or scope-expansion advice cannot add work outside the artifact gate below.
