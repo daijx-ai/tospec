@@ -15,12 +15,15 @@ Or copy this repository into a user or project skills directory supported by you
 ## What it enforces
 
 - smallest task-complete change;
+- one observable target or a request-scoped target matrix at the accepted fidelity;
 - an artifact admission gate before touching extra files;
 - basic safe defaults without speculative production hardening;
 - reuse of still-valid checkpoints instead of replaying completed gates;
+- continued progress across ready, authorized matrix items without promoting a slice or delegated Lane to whole-task completion;
+- separation of evaluator-only delivery material from the real user's task path unless the request or Contract says otherwise;
 - verification that can falsify the changed behavior;
 - concise progress and final reporting;
-- a hard stop when the next action would not change the requested result.
+- a hard stop when the frozen result is complete, blocked or approval-bound, or reaches an explicit task or budget boundary.
 
 The skill keeps higher-priority authorization and safety gates for external, destructive, credential, production, permission, payment, and irreversible actions.
 

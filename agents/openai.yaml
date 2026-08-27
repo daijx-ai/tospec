@@ -1,6 +1,6 @@
 interface:
   display_name: "ToSpec"
-  short_description: "只做用户要求的最小正确交付，阻止范围膨胀和附带产物"
+  short_description: "完整保留用户要求的结果，用最小路径交付，阻止范围膨胀和提前收工"
   default_prompt: "Use $tospec to implement exactly the requested outcome with the smallest sufficient change."
 policy:
   allow_implicit_invocation: true
