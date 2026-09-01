@@ -2,7 +2,7 @@
 name: tospec
 description: "Use whenever the agent is asked to implement, build, fix, modify, recover, retry, continue an implementation, ship, or perform an execution task on code, configuration, or a project. Enforce the smallest task-complete change, no speculative features or hardening, no collateral docs/status/commentary, and nearest-scope verification. Especially use when the user says 绕弯子, 太肉, 东坡肉, 先做基本版, 别浪费时间, or 只做这一步. Do not use for read-only investigation, diagnosis, planning, a requested deep audit or security review, broad refactor, or architecture study."
 metadata:
-  version: "1.2.0"
+  version: "1.2.2"
 ---
 
 # ToSpec
@@ -44,6 +44,8 @@ Create or edit an artifact only when at least one is true:
 3. it is the closest test or verification needed to prove the behavior;
 4. it cleans up something introduced by this change.
 
+An explicit writable-path or artifact allowlist or denylist in the current request or accepted task brief is a hard write boundary. Inspect outside it only to diagnose; if correct or safe completion requires an out-of-bound write, do not work around it inside allowed files—name the smallest boundary change and stop only the affected item until authorized.
+
 Otherwise, do not touch it. In particular:
 
 - Do not add login, debounce, retries, caching, i18n, feature flags, plugin systems, extension points, compatibility layers, abstractions, or dependencies without a current requirement or observed failure.
@@ -74,6 +76,8 @@ Canonical anti-pattern: when asked for tomato and eggs, do not add braised pork,
 2. Implement the shortest complete vertical slice in the existing structure. When the accepted target is a breadth matrix, make each named item a thin, contract-conformant slice and keep already accepted slices runnable while progressing through the matrix.
 3. Prefer direct code over a new abstraction until multiple current cases prove the abstraction is cheaper.
 4. Run the smallest check that can actually falsify the requested behavior on the changed boundary, then any mandatory repository gate for that boundary. A cheap check that cannot detect the plausible failure does not count.
+
+When the accepted task requires a check, consumer readback, or integrity verification before a destructive or irreversible write, execute that named verification before the write while the pre-action state is still available. A later final-state test, inspection of verifier or consumer source, or inference from the write itself does not satisfy that requirement.
 5. After each slice passes, reconcile it against the original target or target matrix. A slice, milestone, presentation gate, or delegated Lane is only a checkpoint; a Lane's `complete` verdict closes only its own brief, never a broader parent target. If a ready, safe, authorized in-scope item remains, continue with the next smallest slice. Stop the whole task only when every frozen acceptance item reaches its requested fidelity, every remaining item is blocked or approval-bound, a task-level failure or budget cap is reached, or the user set an explicit task boundary. A finding blocks the current item only if it falsifies that item, a current contract, or a mandatory authorization, security, or release gate; otherwise carry it as residual risk without fixing or re-reviewing it now. A report, review, or rerun of unchanged work does not qualify as progress by itself.
 
 For a retry or recovery, resume from the latest step whose expected output, exit status, or user confirmation was actually observed. A claim in a report file does not count as an observation. Reuse the checkpoint only while its inputs and environment are unchanged or point-in-time validity is irrelevant; otherwise follow the changed-dependency branch above.
