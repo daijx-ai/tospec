@@ -22,6 +22,7 @@ Or copy this repository into a user or project skills directory supported by you
 - continued progress across ready, authorized matrix items without promoting a slice or delegated Lane to whole-task completion;
 - separation of evaluator-only delivery material from the real user's task path unless the request or Contract says otherwise;
 - verification that can falsify the changed behavior;
+- an explicitly required integrity check or consumer readback before a destructive write, rather than only a final-state test afterward;
 - concise progress and final reporting;
 - a hard stop when the frozen result is complete, blocked or approval-bound, or reaches an explicit task or budget boundary.
 
